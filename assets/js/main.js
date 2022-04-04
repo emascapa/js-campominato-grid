@@ -13,20 +13,22 @@ function createGrid(difficultyChoice) {
     //aggiungo classe css
     cellElement.classList.add('cell');
 
+    let cellsNumber;
+
     //aggiungo altre classi css e numero celle in un condizionale
     if (difficultyChoice == 'easy') {
         cellElement.classList.add('width_10');
-        const cellsNumber = 100;
+        cellsNumber = 100;
     } else if (difficultyChoice == 'medium') {
         cellElement.classList.add('width_9');
-        const cellsNumber = 81;
+        cellsNumber = 81;
     } else if (difficultyChoice == 'difficult') {
         cellElement.classList.add('width_7');
         const cellsNumber = 49;
     } else {
         //prova
         cellElement.classList.add('width_7');
-        const cellsNumber = 7;
+        cellsNumber = 7;
     }
 /* 
     console.log(cellsNumber);
@@ -43,7 +45,7 @@ function createGrid(difficultyChoice) {
 
     //stampo in grid i miei elementi
     for (let i = 1; i <= cellsNumber; i++) {
-
+        cellElement.innerHTML = i;
         gridElement.append(cellElement);
     }
     
