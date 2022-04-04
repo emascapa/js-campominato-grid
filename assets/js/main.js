@@ -1,5 +1,29 @@
+
 //elemento griglia 
 const gridElement = document.querySelector('.grid');
+
+//elemento form
+const elementForm = document.querySelector('form');
+
+//funzione al click
+elementForm.addEventListener('submit', function (event) {
+    // Stop page reloading
+    event.preventDefault()
+
+    const inputChoice = parseInt(document.querySelector('select').value);
+
+    if (inputChoice === 1) {
+        createGrid('easy');
+    } else if (inputChoice === 2) {
+        createGrid('medium');
+    } else if (inputChoice === 3) {
+        createGrid('difficult');
+    }
+
+    selectElements('.cell');
+})
+
+
 
 
 //funzione crea griglia
@@ -84,5 +108,4 @@ function selectElements(divClass) {
 
 
 //createGrid('difficult');
-createGrid('easy');
-selectElements('.cell');
+
