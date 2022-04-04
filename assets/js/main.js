@@ -1,14 +1,19 @@
-
+//elemento griglia 
 const gridElement = document.querySelector('.grid');
 
-function createGrid(difficultyChoice) {
 
+//funzione crea griglia
+function createGrid(difficultyChoice) {
+    //pulisco eventuale griglia già esistente
     gridElement.innerHTML = "";
 
+    //elemento cella
     const cellElement = document.createElement('div');
     
+    //aggiungo classe css
     cellElement.classList.add('cell');
 
+    //aggiungo altre classi css e numero celle in un condizionale
     if (difficultyChoice == 'easy') {
         cellElement.classList.add('width_10');
         const cellsNumber = 100;
@@ -36,6 +41,7 @@ function createGrid(difficultyChoice) {
     gridElement.append(cellElement);
     gridElement.append(cellElement); */
 
+    //stampo in grid i miei elementi
     for (let i = 1; i <= cellsNumber; i++) {
 
         gridElement.append(cellElement);
