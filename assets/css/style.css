@@ -61,3 +61,7 @@ main {
 .width_10 {
     width: calc(100% / 10);
 }
+
+.clicked {
+    background-color: blueviolet;
+}

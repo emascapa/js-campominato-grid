@@ -7,29 +7,25 @@ function createGrid(difficultyChoice) {
     //pulisco eventuale griglia già esistente
     gridElement.innerHTML = "";
 
-    //elemento cella
-    const cellElement = document.createElement('div');
-    
-    //aggiungo classe css
-    cellElement.classList.add('cell');
+    let cellsNumber = 100;
 
-    let cellsNumber;
+    let classToAdd;
 
-    //aggiungo altre classi css e numero celle in un condizionale
-    if (difficultyChoice == 'easy') {
-        cellElement.classList.add('width_10');
+    if (difficultyChoice === 'easy') {
+        classToAdd = 'width_10';
         cellsNumber = 100;
-    } else if (difficultyChoice == 'medium') {
-        cellElement.classList.add('width_9');
+    } else if (difficultyChoice === 'medium') {
+        classToAdd = 'width_9';
         cellsNumber = 81;
-    } else if (difficultyChoice == 'difficult') {
-        cellElement.classList.add('width_7');
-        const cellsNumber = 49;
+    } else if (difficultyChoice === 'difficult') {
+        classToAdd = 'width_7';
+        cellsNumber = 49;
     } else {
         //prova
         cellElement.classList.add('width_7');
         cellsNumber = 7;
     }
+    
 /* 
     console.log(cellsNumber);
     console.log(difficultyChoice);
@@ -45,10 +41,48 @@ function createGrid(difficultyChoice) {
 
     //stampo in grid i miei elementi
     for (let i = 1; i <= cellsNumber; i++) {
-        cellElement.innerHTML = i;
-        gridElement.append(cellElement);
+
+    //elemento cella
+    const cellElement = document.createElement('div');
+    
+    //aggiungo classe css
+    cellElement.classList.add('cell');
+    cellElement.classList.add(classToAdd);
+
+
+    //aggiungo numero celle
+    cellElement.innerHTML = i;
+
+    //inserisco elemento cella in griglia
+    gridElement.append(cellElement);
     }
     
 }
 
+
+function selectElements(divClass) {
+
+    const cells = document.querySelectorAll(divClass);
+
+    //console.log(cells.length);
+    //console.log(cells);
+
+    for (let i = 0; i <= cells.length; i++) {
+        const cell = cells[i];
+
+        cell.addEventListener('click', function () {
+            console.log(this, i);
+            console.log(this.innerText);
+            this.classList.toggle('clicked');
+      
+          })
+        
+
+    }
+
+}
+
+
+//createGrid('difficult');
 createGrid('easy');
+selectElements('.cell');
