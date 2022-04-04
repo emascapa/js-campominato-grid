@@ -3,25 +3,9 @@
 const gridElement = document.querySelector('.grid');
 
 //elemento form
-const elementForm = document.querySelector('form');
+//const elementForm = document.querySelector('form');
 
-//funzione al click
-elementForm.addEventListener('submit', function (event) {
-    // Stop page reloading
-    event.preventDefault()
 
-    const inputChoice = parseInt(document.querySelector('select').value);
-
-    if (inputChoice === 1) {
-        createGrid('easy');
-    } else if (inputChoice === 2) {
-        createGrid('medium');
-    } else if (inputChoice === 3) {
-        createGrid('difficult');
-    }
-
-    selectElements('.cell');
-})
 
 
 
@@ -31,7 +15,7 @@ function createGrid(difficultyChoice) {
     //pulisco eventuale griglia già esistente
     gridElement.innerHTML = "";
 
-    let cellsNumber = 100;
+    let cellsNumber;
 
     let classToAdd;
 
@@ -91,8 +75,10 @@ function selectElements(divClass) {
     //console.log(cells.length);
     //console.log(cells);
 
-    for (let i = 0; i <= cells.length; i++) {
-        const cell = cells[i];
+    for (let i = 0; i < cells.length; i++) {
+        let cell = cells[i];
+
+        //console.log(cell);
 
         cell.addEventListener('click', function () {
             console.log(this, i);
@@ -108,4 +94,51 @@ function selectElements(divClass) {
 
 
 //createGrid('difficult');
+const elementButton = document.getElementById('button_custom');
 
+elementButton.addEventListener('click', function () {
+    // Stop page reloading
+    //event.preventDefault()
+
+    const inputChoice = parseInt(document.querySelector('select').value);
+
+    if (inputChoice === 1) {
+        createGrid('easy');
+        selectElements('.cell');
+
+    } else if (inputChoice === 2) {
+        createGrid('medium');
+        selectElements('.cell');
+
+    } else if (inputChoice === 3) {
+        createGrid('difficult');
+        selectElements('.cell');
+
+    }
+
+})
+
+
+
+//funzione al click
+/* elementForm.addEventListener('submit', function (event) {
+    // Stop page reloading
+    event.preventDefault()
+
+    const inputChoice = parseInt(document.querySelector('select').value);
+
+    if (inputChoice === 1) {
+        createGrid('easy');
+        selectElements('.cell');
+
+    } else if (inputChoice === 2) {
+        createGrid('medium');
+        selectElements('.cell');
+
+    } else if (inputChoice === 3) {
+        createGrid('difficult');
+        selectElements('.cell');
+
+    }
+
+}) */
