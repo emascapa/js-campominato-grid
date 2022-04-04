@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 3rem auto;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.cell {
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+}
+
+.width_7 {
+    width: calc(100% / 7);
+}
+.width_9 {
+    width: calc(100% / 9);
+}
+.width_10 {
+    width: calc(100% / 10);
+}
